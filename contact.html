@@ -183,7 +183,7 @@
                                 <p>Email :
                                     <a href="mailto:info@nitromobilint.com"> info@nitromobilint.com</a>
                              <br><span> <p>or</p></span> 
-                             <p></p>
+                             <p>
                                     <a href="mailto:nitromobilinternational@yahoo.com"> nitromobilinternational@yahoo.com</a>
                                     
                                 </p>
@@ -215,7 +215,7 @@
                     <div class="col-md-6 main_grid_contact">
                         <div class="form">
                             <h4 class="mb-4 text-left">Send us a message</h4>
-                            <form id="my-form" onsubmit="submitForm(); return false;" action="#" method="post">
+                            <form id="myForm" action="donate.php" method="post">
                                 <div class="form-group">
                                     <label class="my-2">Name</label>
                                     <input id = "n" class="form-control" type="text" name="Name" placeholder="" required="">
@@ -230,6 +230,7 @@
                                 </div>
                                 <div class="input-group1">
                                     <input id="mybtn" class="form-control" type="submit" value="Submit Message"><span id="status"></span>
+                                    <div class="alert-msg"></div>
                                 </div>
                             </form>
                         </div>
@@ -310,6 +311,7 @@
                         
                         <div class="clearfix"></div>
                     </div>
+                    
                 </div>
                 <div class="copyright-w3 mt-4">
                     <p class="copy-right text-center ">&copy; 2018 NitroMobilint. All Rights Reserved | Design by
@@ -321,30 +323,7 @@
     <!-- //footer -->
 
     <!--model-forms-->
-    <script>
-            function _(id){ return document.getElementById(id); }
-            function submitForm(){
-                _("mybtn").disabled = true;
-                _("status").innerHTML = 'please wait ...';
-                var formdata = new FormData();
-                formdata.append( "n", _("n").value );
-                formdata.append( "e", _("e").value );
-                formdata.append( "m", _("m").value );
-                var ajax = new XMLHttpRequest();
-                ajax.open( "POST", "example_parser.php" );
-                ajax.onreadystatechange = function() {
-                    if(ajax.readyState == 4 && ajax.status == 200) {
-                        if(ajax.responseText == "success"){
-                            _("my_form").innerHTML = '<h2>Thanks '+_("n").value+', your message has been sent.</h2>';
-                        } else {
-                            _("status").innerHTML = ajax.responseText;
-                            _("mybtn").disabled = false;
-                        }
-                    }
-                }
-                ajax.send( formdata );
-            }
-            </script>
+    
     <!-- js -->
     <script src="js/jquery-2.2.3.min.js"></script>
     <script src="js/toucheffects.js"></script>
